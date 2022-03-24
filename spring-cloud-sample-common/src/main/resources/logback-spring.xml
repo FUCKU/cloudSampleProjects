@@ -1,0 +1,35 @@
+<!DOCTYPE configuration>
+<configuration>
+    <jmxConfigurator/>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <springProperty scope="context" name="application_name" source="spring.application.name"/>
+    <springProperty scope="context" name="ROOT_LOG_LEVEL" source="logging.level.root" defaultValue="INFO"/>
+    <springProperty scope="context" name="SPARC_LOG_LEVEL" source="logging.level.com.cloud.sample" defaultValue="DEBUG"/>
+
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                ${application_name} ::: ${SPARC_CONSOLE_LOG_PATTERN:-%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr([%-36X{TRACE_ID:-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}]){magenta} %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}
+            </pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <root level="${ROOT_LOG_LEVEL}">
+        <appender-ref ref="CONSOLE"/>
+        <if condition='property("LOGSTASH_ENABLED").contains("true")'>
+            <then>
+                <appender-ref ref="gelf"/>
+            </then>
+        </if>
+    </root>
+
+    <logger name="org.springframework.web.servlet.mvc.method.annotation" level="off"/>
+
+    <logger name="org.springframework" level="${ROOT_LOG_LEVEL}"/>
+
+    <logger name="com.cloud.sample" level="${SPARC_LOG_LEVEL}"/>
+
+</configuration>

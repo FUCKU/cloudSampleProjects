@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: cloud-sample-admin-config-service
+  profiles:
+    group:
+      dev:
+        - api-docs
+      local:
+        - api-docs
+      test:
+        - api-docs
+logging:
+  level:
+    root: INFO
+    com.pg.sparc: INFO
+    web: ERROR
+    sql: ERROR
+  file:
+    name: ./logs/service.log
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,refresh

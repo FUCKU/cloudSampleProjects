@@ -1,0 +1,9 @@
+spring:
+  jackson:
+    time-zone: Asia/Tokyo
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,refresh
