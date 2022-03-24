@@ -18,10 +18,13 @@ Project configuration is strictly regulated. We put some configs in project comm
 Call the endpoint address 'http://ip+port/actuator/refresh' to refresh the properties, and you can see the following log in the console
 
 For example:
+
 application_name_IS_UNDEFINED ::: 2022-03-24 13:18:00.607  INFO [,307c860d8a5d55b8,307c860d8a5d55b8] [xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx] 18048 --- [   scheduling-1] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:8888
 
-application_name_IS_UNDEFINED is not right,the logs do not get the right value
+application_name_IS_UNDEFINED is not right, the logs do not get the right value.
+
 When application spring-cloud-sample-demo-service startup ,the logs in console is right ,we can see the right application name,but after call the refresh endpoint ,the logs changed and can not see the right application name.
+
 In `logback-spring.xml` anything like <springProperty scope="context" ....../> seems does not get the value correctly.
 
 ```
@@ -53,4 +56,5 @@ application_name_IS_UNDEFINED ::: 2022-03-24 13:36:11.640  INFO [,4fb57d6c34dd06
 ```
 
 Is this a bug? Or what exactly am I going to do?
+
 I tried several schemes, including changing the logback-spring.xml file to something else and loading it in the application.yml file, but nothing worked.
