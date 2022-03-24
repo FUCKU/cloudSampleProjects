@@ -5,9 +5,11 @@ Project configuration is strictly regulated. We put some configs in project comm
 ## How to run these app
 
 1. to start a configServer, docker file in project spring-cloud-sample-cloud-configs
+
     run command `docker-compose up`
 
 2. modify bootstrap.yml in project spring-cloud-sample-common
+
     need to modify `bootstrap.yml` if you don't run configServer locally  
 
 3. startup project spring-cloud-sample-demo-service
