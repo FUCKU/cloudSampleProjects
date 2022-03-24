@@ -36,13 +36,13 @@ Versions:
 ## One More Question
 when app startup I saw the logs:
 
-``
+```
 cloud-sample-admin-config-service ::: 2022-03-24 13:35:31.413  INFO [,,] [xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx] 13916 --- [           main] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:8888
 cloud-sample-admin-config-service ::: 2022-03-24 13:35:35.014  INFO [,,] [xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx] 13916 --- [           main] c.c.c.ConfigServicePropertySourceLocator : Located environment: name=cloud-sample-admin-config-service, profiles=[dev], label=main, version=83224a4f63f26058eddb27b1f048e85f840f252e, state=null
 cloud-sample-admin-config-service ::: 2022-03-24 13:35:35.016  INFO [,,] [xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx] 13916 --- [           main] b.c.PropertySourceBootstrapConfiguration : Located property source: [BootstrapPropertySource {name='bootstrapProperties-configClient'}, BootstrapPropertySource {name='bootstrapProperties-https://github.com/FUCKU/cloudSample/dev/cloud-sample-admin-config-service.yml'}, BootstrapPropertySource {name='bootstrapProperties-https://github.com/FUCKU/cloudSample/dev/application.yml'}]
 cloud-sample-admin-config-service ::: 2022-03-24 13:35:35.044  INFO [,,] [xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx] 13916 --- [           main] com.cloud.sample.ServiceApplication      : The following 2 profiles are active: "dev", "api-docs"
 
-``
+```
 
 
 But when we call the refresh endpoint, the logs as follows:
